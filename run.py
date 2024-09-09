@@ -7,8 +7,13 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
 ]
 
-CREDS = Credentials.form_service_account_file('creds.creds.json')
+CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('the_football_academy_analytics')
 
+weekly = SHEET.worksheet('weekly')
+
+data = weekly.get_all_values()
+
+print(data)

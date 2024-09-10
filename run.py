@@ -54,4 +54,14 @@ def get_weekly_revenue():
             return False
 
     return True
+
+def update_weekly_worksheet(data, worksheet):
+    """
+    Receives a list of integers to be imported into the weekly revenue worksheet,
+    and updates it with the data provided
+    """
+    print("Updating weekly revenue worksheet...\n")
+    weekly_worksheet = SHEET.worksheet("weekly")
+    weekly_worksheet.append_row(data)
+    print("Weekly revenue worksheet updated correctly.\n")
     

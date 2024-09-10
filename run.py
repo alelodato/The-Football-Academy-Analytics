@@ -64,4 +64,12 @@ def update_weekly_worksheet(data, worksheet):
     weekly_worksheet = SHEET.worksheet("weekly")
     weekly_worksheet.append_row(data)
     print("Weekly revenue worksheet updated correctly.\n")
+
+def main():
+    """
+    Run all program functions
+    """
+    data = get_weekly_revenue()
+    weekly_data = [int(num) for num in data]
+    update_weekly_worksheet(weekly_data,"weekly")
     

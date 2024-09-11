@@ -16,7 +16,17 @@ weekly = SHEET.worksheet('weekly')
 
 data = weekly.get_all_values()
 
-print(data)
+def select_program():
+    print("Select the program you wuld like to run below:")
+    print("1.Revenue Analytics")
+    print("2.Free Trial Registrations")
+    program_choice = input("Enter 1 or 2 to select a program:\n")
+    if int(program_choice) == 1:
+        get_weekly_revenue()
+    elif int(program_choice) == 2:
+        survey_results()
+
+
 
 def get_weekly_revenue():
     """
@@ -35,21 +45,21 @@ def get_weekly_revenue():
         if validate_data(weekly_revenue):
             print("Data inserted is valid.")
             break
-        return weekly_data
+        return weekly_revenue 
     
     def validate_data(values):
         """
-    Inside the try, converts all string values into integers.
-    Raises ValueError if strings cannot be converted into int,
-    or if there aren't exactly 3 values.
-    """
-    try:
-        [int(value) for value in values]
-        if len(values) != 3:
-            raise ValueError(
-                f"Exactly 3 values required, you provided {len(values)}"
-            )
-    except ValueError as e:
+        Inside the try, converts all string values into integers.
+        Raises ValueError if strings cannot be converted into int,
+        or if there aren't exactly 3 values.
+        """
+        try:
+            [int(value) for value in values]
+            if len(values) != 3:
+                raise ValueError(
+                    f"Exactly 3 values required, you provided {len(values)}"
+                )
+        except ValueError as e:
             print(f"Invalid data{e},please try again.\n")
             return False
 
@@ -65,11 +75,62 @@ def update_weekly_worksheet(data, worksheet):
     weekly_worksheet.append_row(data)
     print("Weekly revenue worksheet updated correctly.\n")
 
+def get_trials():
+    """
+    Gets the daily trial registrations of the 3 teams of the academy
+    """
+
+    while True:
+        print("Please enter last week trial registrations for the 3 teams of the academy.")
+        print("Enter 3 values, separated by commas.")
+        print("Example: 1500, 1700, 2000.")
+
+        data_trial = input("Enter your data here:\n")
+
+        daily_trials = data_str.split(",")
+
+        if validate_data(daily_trials):
+            print("Data inserted is valid.")
+            break
+        return trials_data
+    
+    def validate_data(values):
+        """
+        Inside the try, converts all string values into integers.
+        Raises ValueError if strings cannot be converted into int,
+        or if there aren't exactly 3 values.
+        """
+        try:
+            [int(value) for value in values]
+        if len(values) != 3:
+            raise ValueError(
+                f"Exactly 3 values required, you provided {len(values)}"
+            )
+        
+
+        except ValueError as e:
+            print(f"Invalid data{e},please try again.\n")
+            return False
+
+    return True
+    
+    
+    
+
+
+
 def main():
     """
     Run all program functions
     """
-    data = get_weekly_revenue()
-    weekly_data = [int(num) for num in data]
-    update_weekly_worksheet(weekly_data,"weekly")
+    select_program()
+    revenue_data = get_weekly_revenue()
+    trial_data = get_trials()
+    weekly_revenue = [int(num) for num in data]
+    trials = [int(num) for num in data]
+    update_weekly_worksheet(weekly_revenue,"weekly")
+    update_trials_worksheet(trials, "trials")
+
     
+print("Hi! This is the Football Academy Analytics Program.")
+main()

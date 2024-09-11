@@ -99,9 +99,9 @@ def main():
     Run all program functions
     """
     select_program()
-    revenue_data = get_weekly_revenue()1,2,3
+    revenue_data = get_weekly_revenue()
     weekly_revenue = [int(num) for num in data]
-    update_weekly_worksheet(weekly_revenue,"weekly")
+    update_weekly_worksheet(weekly_revenue, "weekly")
     trial_data = get_trials()
     trials_data = [int(num) for num in data]
     update_trials_worksheet(trials_data, "trials")

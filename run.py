@@ -35,6 +35,25 @@ def get_under8_revenue():
             break
     return under8_revenue
 
+def get_under11_revenue():
+    """
+    Gets the monthly revenue of the under 11 team of the academy, for the respective 3 tariffs and payment plans.
+    """
+
+    while True:
+        print("Please enter last month revenue for the under 11 team, include all 3 packs.")
+        print("Enter 3 values, separated by commas.")
+        print("Example: 1500, 1700, 2000.")
+
+        data_str = input("Enter your data here:\n")
+
+        weekly_revenue = data_str.split(",")
+
+        if validate_data(under11_revenue):
+            print("Data inserted is valid.")
+            break
+    return under11_revenue
+
 def validate_data(values):
     """
     Inside the try, converts all string values into integers.

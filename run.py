@@ -16,18 +16,6 @@ weekly = SHEET.worksheet('weekly')
 
 data = weekly.get_all_values()
 
-def select_program():
-    print("Select the program you wuld like to run below:")
-    print("1.Revenue Analytics")
-    print("2.Free Trial Registrations")
-    program_choice = input("Enter 1 or 2 to select a program:\n")
-    if int(program_choice) == 1:
-        get_weekly_revenue()
-    elif int(program_choice) == 2:
-        get_trials()
-
-
-
 def get_weekly_revenue():
     """
     Gets the weekly revenue of the 3 teams of the academy
@@ -45,36 +33,7 @@ def get_weekly_revenue():
         if validate_data(weekly_revenue):
             print("Data inserted is valid.")
             break
-    return weekly_revenue 
-
-def update_weekly_worksheet(data, worksheet):
-    """
-    Receives a list of integers to be imported into the weekly revenue worksheet,
-    and updates it with the data provided
-    """
-    print("Updating weekly revenue worksheet...\n")
-    weekly_worksheet = SHEET.worksheet("weekly")
-    weekly_worksheet.append_row(data)
-    print("Weekly revenue worksheet updated correctly.\n")
-
-def get_trials():
-    """
-    Gets the daily trial registrations of the 3 teams of the academy
-    """
-
-    while True:
-        print("Please enter last week trial registrations for the 3 teams of the academy.")
-        print("Enter 3 values, separated by commas.")
-        print("Example: 5, 8, 12.")
-
-        data_trial = input("Enter your data here:\n")
-
-        trials_data = data_trial.split(",")
-
-        if validate_data(trials_data):
-            print("Data inserted is valid.")
-            break
-    return trials_data
+    return weekly_revenue
 
 def validate_data(values):
     """
@@ -93,19 +52,50 @@ def validate_data(values):
         return False
 
     return True
+
+def update_weekly_worksheet(data, worksheet):
+    """
+    Receives a list of integers to be imported into the weekly revenue worksheet,
+    and updates it with the data provided
+    """
+    print("Updating weekly revenue worksheet...\n")
+    weekly_worksheet = SHEET.worksheet("weekly")
+    weekly_worksheet.append_row(data)
+    print("Weekly revenue worksheet updated correctly.\n")
+
+def get_last_4_weekly_entries():
+    """
+    Collects columns of data from weekly worksheet, collecting
+    the last 4 entries for each team, so that the monthly total revenue is calulated and updated, then returns the data
+    as a list of lists.
+    """
+    weekly = SHEET.worksheet("weekly")
     
+    columns = []
+    for ind in range(0, 5):
+        column = weekly.col_values(ind)
+        columns.append(column[-4:])
+    return columns
+
+def calculate_monthly_revenue(weekly_row):
+    print("Updating monthly total revenue...\n")
+
+
+
+
+def update_monthly_worksheet(data, worksheet):
+    
+    monthly_worksheet = SHEET.worksheet("monthly")
+    monthly_worksheet
+
 def main():
     """
     Run all program functions
     """
-    select_program()
-    revenue_data = get_weekly_revenue()
+    data = get_weekly_revenue()
     weekly_revenue = [int(num) for num in data]
     update_weekly_worksheet(weekly_revenue, "weekly")
-    trial_data = get_trials()
-    trials_data = [int(num) for num in data]
-    update_trials_worksheet(trials_data, "trials")
+    month_revenue = get_last_4_weekly_entries()
 
-    
 print("Hi! This is the Football Academy Analytics Program.")
 main()

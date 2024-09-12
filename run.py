@@ -12,17 +12,17 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('the_football_academy_analytics')
 
-weekly = SHEET.worksheet('weekly')
+u8s = SHEET.worksheet('u8s')
 
-data = weekly.get_all_values()
+data = u8s.get_all_values()
 
-def get_weekly_revenue():
+def get_under8_revenue():
     """
-    Gets the weekly revenue of the 3 teams of the academy
+    Gets the monthly revenue of the under 8 team of the academy, for the respective 3 tariffs and payment plans.
     """
 
     while True:
-        print("Please enter last week revenue for the 3 teams of the academy.")
+        print("Please enter last month revenue for the under 8 team, include all 3 packs.")
         print("Enter 3 values, separated by commas.")
         print("Example: 1500, 1700, 2000.")
 
@@ -30,10 +30,10 @@ def get_weekly_revenue():
 
         weekly_revenue = data_str.split(",")
 
-        if validate_data(weekly_revenue):
+        if validate_data(under8_revenue):
             print("Data inserted is valid.")
             break
-    return weekly_revenue
+    return under8_revenue
 
 def validate_data(values):
     """
@@ -53,49 +53,29 @@ def validate_data(values):
 
     return True
 
-def update_weekly_worksheet(data, worksheet):
+def update_worksheet(data, worksheet):
     """
-    Receives a list of integers to be imported into the weekly revenue worksheet,
-    and updates it with the data provided
+    Receives a list of integers to be imported into a worksheet
+    Update the relevant worksheet with the data provided
     """
-    print("Updating weekly revenue worksheet...\n")
-    weekly_worksheet = SHEET.worksheet("weekly")
-    weekly_worksheet.append_row(data)
-    print("Weekly revenue worksheet updated correctly.\n")
-
-def get_last_4_weekly_entries():
-    """
-    Collects columns of data from weekly worksheet, collecting
-    the last 4 entries for each team, so that the monthly total revenue is calulated and updated, then returns the data
-    as a list of lists.
-    """
-    weekly = SHEET.worksheet("weekly")
-    
-    columns = []
-    for ind in range(0, 5):
-        column = weekly.col_values(ind)
-        columns.append(column[-4:])
-    return columns
-
-def calculate_monthly_revenue(weekly_row):
-    print("Updating monthly total revenue...\n")
-
-
-
-
-def update_monthly_worksheet(data, worksheet):
-    
-    monthly_worksheet = SHEET.worksheet("monthly")
-    monthly_worksheet
+    print(f"Updating {worksheet} worksheet...\n")
+    worksheet_to_update = SHEET.worksheet(worksheet)
+    worksheet_to_update.append_row(data)
+    print(f"{worksheet} worksheet updated correctly")
 
 def main():
     """
     Run all program functions
     """
-    data = get_weekly_revenue()
-    weekly_revenue = [int(num) for num in data]
-    update_weekly_worksheet(weekly_revenue, "weekly")
-    month_revenue = get_last_4_weekly_entries()
+    u8_data = get_under8_revenue()
+    under8_revenue = [int(num) for num in data]
+    update_worksheet(under8_revenue, "u8s")
+    u11_data = get_under11_revenue()
+    under11_revenue = [int(num) for num in data]
+    update_worksheet(under11_revenue, "u11s")
+    u13_data = get_under13_revenue()
+    under13_revenue = [int(num) for num in data]
+    update_worksheet(under13_revenue, "u13s")
 
 print("Hi! This is the Football Academy Analytics Program.")
 main()

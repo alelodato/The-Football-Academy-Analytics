@@ -73,6 +73,10 @@ def get_under13_revenue():
             break
     return under13_revenue
 
+def calculate_total_revenue():
+    print("Calculating total monthly revenue...\n")
+    
+
 def validate_data(values):
     """
     Inside the try, converts all string values into integers.

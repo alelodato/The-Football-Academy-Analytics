@@ -28,7 +28,7 @@ def get_under8_revenue():
 
         data_str = input("Enter your data here:\n")
 
-        weekly_revenue = data_str.split(",")
+        under8_revenue = data_str.split(",")
 
         if validate_data(under8_revenue):
             print("Data inserted is valid.")
@@ -47,7 +47,7 @@ def get_under11_revenue():
 
         data_str = input("Enter your data here:\n")
 
-        weekly_revenue = data_str.split(",")
+        under11_revenue = data_str.split(",")
 
         if validate_data(under11_revenue):
             print("Data inserted is valid.")
@@ -66,7 +66,7 @@ def get_under13_revenue():
 
         data_str = input("Enter your data here:\n")
 
-        weekly_revenue = data_str.split(",")
+        under13_revenue = data_str.split(",")
 
         if validate_data(under13_revenue):
             print("Data inserted is valid.")
@@ -84,10 +84,10 @@ def validate_data(values):
         if len(values) != 3:
             raise ValueError(
                 f"Exactly 3 values required, you provided {len(values)}"
-                )
+            )
     except ValueError as e:
-        print(f"Invalid data {e},please try again.\n")
-        return False
+            print(f"Invalid data {e},please try again.\n")
+            return False
 
     return True
 
@@ -105,13 +105,13 @@ def main():
     """
     Run all program functions
     """
-    u8_data = get_under8_revenue()
+    data = get_under8_revenue()
     under8_revenue = [int(num) for num in data]
     update_worksheet(under8_revenue, "u8s")
-    u11_data = get_under11_revenue()
+    data = get_under11_revenue()
     under11_revenue = [int(num) for num in data]
     update_worksheet(under11_revenue, "u11s")
-    u13_data = get_under13_revenue()
+    data = get_under13_revenue()
     under13_revenue = [int(num) for num in data]
     update_worksheet(under13_revenue, "u13s")
 

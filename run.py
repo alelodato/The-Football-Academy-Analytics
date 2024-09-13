@@ -151,3 +151,4 @@ def main():
 
 print("Hi! This is the Football Academy Analytics Program.")
 main()
+print("Worksheets updated correctly! Thank you!")

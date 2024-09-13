@@ -131,7 +131,7 @@ def main():
     under13_revenue = [int(num) for num in data]
     update_worksheet(under13_revenue, "u13s")
     total_revenue_data = calculate_total_revenue()
-    update_worksheet(total_revenue_data, "total")
+    update_worksheet(total_revenue_data, "total revenue")
 
 print("Hi! This is the Football Academy Analytics Program.")
 main()

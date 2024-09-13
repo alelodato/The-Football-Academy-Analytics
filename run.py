@@ -83,11 +83,11 @@ def calculate_total_revenue():
     under13_row = under13[-1]
 
     total_revenue = []
-    for under8, under11, under13 in zip(under8_row, under11_row,under13_row):
+    for under8, under11, under13 in zip(under8_row, under11_row, under13_row):
         total = int(under8) + int(under11) + int(under13)
         total_revenue.append(total)
 
-    print(total_revenue)
+    return total_revenue
 
 def validate_data(values):
     """
@@ -131,6 +131,7 @@ def main():
     under13_revenue = [int(num) for num in data]
     update_worksheet(under13_revenue, "u13s")
     total_revenue_data = calculate_total_revenue()
+    update_worksheet(total_revenue_data, "total")
 
 print("Hi! This is the Football Academy Analytics Program.")
 main()

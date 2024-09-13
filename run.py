@@ -89,6 +89,19 @@ def calculate_total_revenue():
 
     return total_revenue
 
+def calculate_difference():
+    print("Calculating difference with last month revenue...\n")
+    total_month = SHEET.worksheet("total revenue").get_all_values()
+    total_row = total_month[-1]
+    previous_month = SHEET.worksheet("previous").get_all_values()
+    previous_row = previous_month[-1]
+
+    revenue_difference = []
+    for total_month, previous_month in zip(total_row, previous_row):
+        difference = int(total_month) - int(previous_month)
+        revenue_difference.append(difference)
+    return revenue_difference
+
 def validate_data(values):
     """
     Inside the try, converts all string values into integers.
@@ -132,6 +145,9 @@ def main():
     update_worksheet(under13_revenue, "u13s")
     total_revenue_data = calculate_total_revenue()
     update_worksheet(total_revenue_data, "total revenue")
+    revenue_difference_data = calculate_difference()
+    update_worksheet(revenue_difference_data, "difference")
+    update_worksheet(total_revenue_data, "previous")
 
 print("Hi! This is the Football Academy Analytics Program.")
 main()

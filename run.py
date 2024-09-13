@@ -69,7 +69,7 @@ def get_under13_revenue():
         under13_revenue = data_str.split(",")
 
         if validate_data(under13_revenue):
-            print("Data inserted is valid.")
+            print("Valid data insterted.")
             break
     return under13_revenue
 

@@ -152,6 +152,6 @@ def main():
     update_worksheet(revenue_difference_data, "difference")
     update_worksheet(total_revenue_data, "previous")
 
-print(Fore.WHITE + Back.GREEN + "HI! THIS IS THE FOOTBALL ACADEMY ANALYTICS PROGRAM." + Back.RESET)
+print(Fore.GREEN + "HI! THIS IS THE FOOTBALL ACADEMY ANALYTICS PROGRAM." + Fore.RESET)
 main()
-print(Fore.WHITE + Back.GREEN + "WORKSHEETS UPDATED CORRECTLY! THANK YOU" + Back.RESET)
+print(Fore.GREEN + "WORKSHEETS UPDATED CORRECTLY! THANK YOU" + Fore.RESET)

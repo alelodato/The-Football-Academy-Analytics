@@ -27,9 +27,9 @@ def get_under8_revenue():
     while True:
         print("Please enter last month revenue for the under 8 team, including all 3 payment plans.")
         print("Enter 3 values, separated by commas.")
-        print("Example: 1500, 1700, 2000.")
+        print(Fore.YELLOW + "Example: 1500, 1700, 2000." + Fore.RESET)
 
-        data_str = input("Enter your data here:\n")
+        data_str = input(Fore.CYAN + "Enter your data here:\n" + Fore.RESET)
 
         under8_revenue = data_str.split(",")
 
@@ -46,9 +46,9 @@ def get_under11_revenue():
     while True:
         print("Please enter last month revenue for the under 11 team, including all 3 payment plans.")
         print("Enter 3 values, separated by commas.")
-        print("Example: 1500, 1700, 2000.")
+        print(Fore.YELLOW + "Example: 1500, 1700, 2000." + Fore.RESET)
 
-        data_str = input("Enter your data here:\n")
+        data_str = input(Fore.CYAN + "Enter your data here:\n" + Fore.RESET)
 
         under11_revenue = data_str.split(",")
 
@@ -65,9 +65,9 @@ def get_under13_revenue():
     while True:
         print("Please enter last month revenue for the under 13 team, include all 3 payment plans.")
         print("Enter 3 values, separated by commas.")
-        print("Example: 1500, 1700, 2000.")
+        print(Fore.YELLOW + "Example: 1500, 1700, 2000." + Fore.RESET)
 
-        data_str = input("Enter your data here:\n")
+        data_str = input(Fore.CYAN + "Enter your data here:\n" + Fore.RESET)
 
         under13_revenue = data_str.split(",")
 
@@ -77,7 +77,7 @@ def get_under13_revenue():
     return under13_revenue
 
 def calculate_total_revenue():
-    print("Calculating total monthly revenue...\n")
+    print(Fore.YELLOW + "Calculating total monthly revenue...\n" + Fore.RESET)
     under8 = SHEET.worksheet("u8s").get_all_values()
     under8_row = under8[-1]
     under11 = SHEET.worksheet("u11s").get_all_values()
@@ -93,7 +93,7 @@ def calculate_total_revenue():
     return total_revenue
 
 def calculate_difference():
-    print("Calculating difference with last month revenue...\n")
+    print(Fore.YELLOW + "Calculating difference with last month revenue...\n" + Fore.RESET)
     total_month = SHEET.worksheet("total revenue").get_all_values()
     total_row = total_month[-1]
     previous_month = SHEET.worksheet("previous").get_all_values()
@@ -115,7 +115,7 @@ def validate_data(values):
         [int(value) for value in values]
         if len(values) != 3:
             raise ValueError(
-               Fore.RED + f"Exactly 3 values required, you provided {len(values)}, please try again" + Fore.RESET
+               Fore.RED + f"Exactly 3 values required, you provided {len(values)}" + Fore.RESET
             )
     except ValueError as e:
             print(Fore.RED + f"Invalid data {e},please try again.\n" + Fore.RESET)
@@ -128,7 +128,7 @@ def update_worksheet(data, worksheet):
     Receives a list of integers to be imported into a worksheet
     Update the relevant worksheet with the data provided
     """
-    print(f"Updating {worksheet} worksheet...\n")
+    print(Fore.YELLOW + f"Updating {worksheet} worksheet...\n" + Fore.RESET)
     worksheet_to_update = SHEET.worksheet(worksheet)
     worksheet_to_update.append_row(data)
     print(Fore.GREEN + f"{worksheet} worksheet updated correctly" + Fore.RESET)
@@ -154,4 +154,4 @@ def main():
 
 print(Fore.GREEN + "HI! THIS IS THE FOOTBALL ACADEMY ANALYTICS PROGRAM." + Fore.RESET)
 main()
-print(Fore.GREEN + "WORKSHEETS UPDATED CORRECTLY! THANK YOU" + Fore.RESET)
+print(Fore.CYAN + "WORKSHEETS UPDATED CORRECTLY! THANK YOU" + Fore.RESET)

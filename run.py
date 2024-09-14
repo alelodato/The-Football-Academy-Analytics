@@ -1,5 +1,8 @@
 import gspread
 from google.oauth2.service_account import Credentials
+import colorama
+from colorama import Fore, Back, Style
+
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -18,11 +21,11 @@ data = u8s.get_all_values()
 
 def get_under8_revenue():
     """
-    Gets the monthly revenue of the under 8 team of the academy, for the respective 3 tariffs and payment plans.
+    Gets the monthly revenue of the under 8 team of the academy, for the respective 3 tariffs or payment plans.
     """
 
     while True:
-        print("Please enter last month revenue for the under 8 team, include all 3 packs.")
+        print("Please enter last month revenue for the under 8 team, including all 3 payment plans.")
         print("Enter 3 values, separated by commas.")
         print("Example: 1500, 1700, 2000.")
 
@@ -31,17 +34,17 @@ def get_under8_revenue():
         under8_revenue = data_str.split(",")
 
         if validate_data(under8_revenue):
-            print("Data inserted is valid.")
+            print(Fore.GREEN + "Valid data entered." + Fore.RESET)
             break
     return under8_revenue
 
 def get_under11_revenue():
     """
-    Gets the monthly revenue of the under 11 team of the academy, for the respective 3 tariffs and payment plans.
+    Gets the monthly revenue of the under 11 team of the academy, for the respective 3 tariffs or payment plans.
     """
 
     while True:
-        print("Please enter last month revenue for the under 11 team, include all 3 packs.")
+        print("Please enter last month revenue for the under 11 team, including all 3 payment plans.")
         print("Enter 3 values, separated by commas.")
         print("Example: 1500, 1700, 2000.")
 
@@ -50,17 +53,17 @@ def get_under11_revenue():
         under11_revenue = data_str.split(",")
 
         if validate_data(under11_revenue):
-            print("Data inserted is valid.")
+            print(Fore.GREEN + "Valid data entered." + Fore.RESET)
             break
     return under11_revenue
 
 def get_under13_revenue():
     """
-    Gets the monthly revenue of the under 13 team of the academy, for the respective 3 tariffs and payment plans.
+    Gets the monthly revenue of the under 13 team of the academy, for the respective 3 tariffs or payment plans.
     """
 
     while True:
-        print("Please enter last month revenue for the under 13 team, include all 3 packs.")
+        print("Please enter last month revenue for the under 13 team, include all 3 payment plans.")
         print("Enter 3 values, separated by commas.")
         print("Example: 1500, 1700, 2000.")
 
@@ -69,7 +72,7 @@ def get_under13_revenue():
         under13_revenue = data_str.split(",")
 
         if validate_data(under13_revenue):
-            print("Valid data insterted.")
+            print(Fore.GREEN + "Valid data entered." + Fore.RESET)
             break
     return under13_revenue
 
@@ -112,10 +115,10 @@ def validate_data(values):
         [int(value) for value in values]
         if len(values) != 3:
             raise ValueError(
-                f"Exactly 3 values required, you provided {len(values)}"
+               Fore.RED + f"Exactly 3 values required, you provided {len(values)}, please try again" + Fore.RESET
             )
     except ValueError as e:
-            print(f"Invalid data {e},please try again.\n")
+            print(Fore.RED + f"Invalid data {e},please try again.\n" + Fore.RESET)
             return False
 
     return True
@@ -128,7 +131,7 @@ def update_worksheet(data, worksheet):
     print(f"Updating {worksheet} worksheet...\n")
     worksheet_to_update = SHEET.worksheet(worksheet)
     worksheet_to_update.append_row(data)
-    print(f"{worksheet} worksheet updated correctly")
+    print(Fore.GREEN + f"{worksheet} worksheet updated correctly" + Fore.RESET)
 
 def main():
     """
@@ -149,6 +152,6 @@ def main():
     update_worksheet(revenue_difference_data, "difference")
     update_worksheet(total_revenue_data, "previous")
 
-print("Hi! This is the Football Academy Analytics Program.")
+print(Fore.WHITE + Back.GREEN + "HI! THIS IS THE FOOTBALL ACADEMY ANALYTICS PROGRAM." + Back.RESET)
 main()
-print("Worksheets updated correctly! Thank you!")
+print(Fore.WHITE + Back.GREEN + "WORKSHEETS UPDATED CORRECTLY! THANK YOU" + Back.RESET)

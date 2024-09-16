@@ -19,9 +19,11 @@ u8s = SHEET.worksheet('u8s')
 
 data = u8s.get_all_values()
 
+
 def get_under8_revenue():
     """
-    Gets the monthly revenue of the under 8 team of the academy, for the respective 3 tariffs or payment plans.
+    Gets the monthly revenue of the under 8 team of the academy,
+    for the respective 3 tariffs or payment plans.
     """
 
     while True:
@@ -38,9 +40,11 @@ def get_under8_revenue():
             break
     return under8_revenue
 
+
 def get_under11_revenue():
     """
-    Gets the monthly revenue of the under 11 team of the academy, for the respective 3 tariffs or payment plans.
+    Gets the monthly revenue of the under 11 team of the academy,
+    for the respective 3 tariffs or payment plans.
     """
 
     while True:
@@ -57,9 +61,11 @@ def get_under11_revenue():
             break
     return under11_revenue
 
+
 def get_under13_revenue():
     """
-    Gets the monthly revenue of the under 13 team of the academy, for the respective 3 tariffs or payment plans.
+    Gets the monthly revenue of the under 13 team of the academy,
+    for the respective 3 tariffs or payment plans.
     """
 
     while True:
@@ -75,6 +81,7 @@ def get_under13_revenue():
             print(Fore.GREEN + "Valid data entered." + Fore.RESET)
             break
     return under13_revenue
+
 
 def calculate_total_revenue():
     print(Fore.YELLOW + "Calculating total monthly revenue...\n" + Fore.RESET)
@@ -92,6 +99,7 @@ def calculate_total_revenue():
 
     return total_revenue
 
+
 def calculate_difference():
     print(Fore.YELLOW + "Calculating difference with last month revenue...\n" + Fore.RESET)
     total_month = SHEET.worksheet("total revenue").get_all_values()
@@ -104,6 +112,7 @@ def calculate_difference():
         difference = int(total_month) - int(previous_month)
         revenue_difference.append(difference)
     return revenue_difference
+
 
 def validate_data(values):
     """
@@ -118,10 +127,11 @@ def validate_data(values):
                Fore.RED + f"Exactly 3 values required, you provided {len(values)}" + Fore.RESET
             )
     except ValueError as e:
-            print(Fore.RED + f"Invalid data {e},please try again.\n" + Fore.RESET)
-            return False
+        print(Fore.RED + f"Invalid data {e},please try again.\n" + Fore.RESET)
+        return False
 
     return True
+
 
 def update_worksheet(data, worksheet):
     """
@@ -132,6 +142,7 @@ def update_worksheet(data, worksheet):
     worksheet_to_update = SHEET.worksheet(worksheet)
     worksheet_to_update.append_row(data)
     print(Fore.GREEN + f"{worksheet} worksheet updated correctly" + Fore.RESET)
+
 
 def main():
     """
@@ -151,6 +162,7 @@ def main():
     revenue_difference_data = calculate_difference()
     update_worksheet(revenue_difference_data, "difference")
     update_worksheet(total_revenue_data, "previous")
+
 
 print(Fore.GREEN + "HI! THIS IS THE FOOTBALL ACADEMY ANALYTICS PROGRAM." + Fore.RESET)
 main()

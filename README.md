@@ -110,23 +110,7 @@ The flow chart was made using [Lucid Charts](https://www.lucidchart.com/pages/).
 
 ## Testing
 
-The portal has been well tested and the results can be viewed [here - TESTING](https://github.com/todiane/corri-construction-p3/blob/main/TESTING.md)
-
-
-## Future Updates
-
-The next update of the app will include the option to choose whether it is their first visit (which will show the instructions) or whether they have used the service before - which will show the instructions behind a button.
-
-The ability for a manager to log into the system and confirm working dates and days for each contractor all in one place rather than via separate emails.
-
-Relevant information is accessible by the umbrella company so that HR doesn't have to collate and forward this information.
-
-Other future updates are included in the TESTING.md file.
-
-## Validation
-
-PEP8 - Python style guide checker imported - https://pypi.org/project/pep8/
-All code validated and where lines were showing as too long they were adjusted. Some line adjustments caused bugs in the code and it stopped working so they were left as longer lines to avoid this issue. pycodestyle . - was used in Codeanywhere terminal to list any issues.
+The program has been well tested and the results can be viewed [here - TESTING](https://alelodato/The-Football-Academy-Analytics/blob/main/TESTING.md)
 
 ## Deployment
 

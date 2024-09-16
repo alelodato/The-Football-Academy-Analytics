@@ -1,18 +1,18 @@
 
 
 # THE FOOTBALL ACADEMY ANALYTICS PROGRAM
-![CCCCP header](/assets/images/cc-rm-instructions.png)
+![CCCCP header](/assets/images/terminal-overview.webp)
+![CCCCP header](/assets/images/worksheet-overview.webp)
 
-The Football Academy Analytics Program, is made to update the revenue of the 3 teams of a football academy, and is automated to calculate the total revenue, the difference related to the previous month revenue, and to update the previous month revenue worksheet with after all data are inserted and all other worksheet have been updated.
+The Football Academy Analytics Program, is made to update the revenue of the 3 teams of a football academy, and is automated to calculate the total revenue, the difference compared to the previous month revenue, and to update the previous month revenue worksheet with the total revenue last calculated by the program,after all data are inserted and all other worksheet have been updated, so that si already in the system for the next update.
 
 The deployed project live link is [HERE](https://the-football-academy-analytics-b24b05f91367.herokuapp.com/) - ***Use Ctrl (Cmd) and click to open in a new window.*** 
 
 ## Contents
 
-- [Introduction](#introduction)
-- [Project](#project)
-  - [User goals:](#user-goals)
-  - [Site owner goals](#site-owner-goals)
+
+- [User goals:](#user-goals)
+- [Site owner goals](#site-owner-goals)
 - [Pre development](#pre-development)
 - [Development](#development)
 - [Features](#features)
@@ -41,212 +41,72 @@ The deployed project live link is [HERE](https://the-football-academy-analytics-
 - [Credits](#credits)
 - [Acknowledgements](#acknowledgements)
 
-## Introduction
-
-This portal asks contractors to input their name, profession, working dates, number of days worked and number of hours. They are then given a rough estimate of their pay due after tax and NI (which is handled by an umbrella company). The data is forwarded to HR (who extract information for the umbrella company) with a copy also sent to the contractor's email address.
-
-## Project 
-
-The aim of this project is to:
-
-- Reduce the number of calls from contractors to HR asking about their pay.
-- Encourage contractors to enter their working dates regularly and within a couple of months.
-- Provide a system that will send the information added by the contractor to HR as well as the user.
-- Provide clear, visible instructions with each visit.*
-
-![storyboard](assets/images/ccccp-storyboard-small.png)
-
-
-*Contractors felt that it was important for the instructions to be shown EACH TIME a contractor visits. In a questionnaire sent out many of them cited their dislike of technology and the fact that they tend to ignore instructions unless they are in front of them. This then results in phone calls to HR that could easily be avoided. For this reason it was decided to leave the instructions in full view each time, rather than hide them behind an instruction button.
-
-### User goals:
-
-Get clear instructions on how to use the system in front of them that they can refer to if needed.
-The ability to input their details including dates of work, days, and hours.
-Retrieve their employee number.
-Get an estimate of tax and national insurance due to be paid.
-Receive a copy of the information inputted via email.
-
-
 ### Site owner goals
 
 Provide a program that is easy to use and maintain.
-Present a program that gives clear instructions each time a contractor visits.
-Get access to the information inputted by users via email.
-Develop a program that can have additional features added at a later date.
-Add the submitted information to Google Sheets with one sheet for information before tax and the other sheet containing tax and national insurance information.
+Present a program that gives clear instructions each time a member of the staff visits.
+Keep track of the individual teams and tariff plans revenue, and be able to automatic calculate the total and the difference between the current and last month ones.
+Add the submitted informations and get access to them via a Google Sheets worksheet.
+### User goals:
 
+Get clear instructions on how to use the system in front of them that they can refer to if needed.
+The ability to easily input the revenue for the three teams of the academy and for the three different payment plans.
+Get an automatic calculation of the total revenue of the three teams and a comparisation with the previous month one, also having the last total calculated automatically added to the previous month worksheet, to be ready for the next update.
+Receive feedbacks when values are entered correctly and worksheets updated.
 
 ### Pre development
-I wrote out notes and created a flow chart. All I had to do then is follow my notes and code one area at a time before moving on to the next. I set up projects in GitHub to write out work that needed to be done. The aim is to provide early and continuous delivery of the project.
 
-![ccccp flow chart](/assets/images/ccccp-flow-chart.png)
+I wrote out notes and created a flow chart. All I had to do then is follow my notes and code one area at a time before moving on to the next. Below is the flow-chart i created using [Lucid Charts](https://www.lucidchart.com/pages/).
 
-My actual notes that created the flow chart
-
-![CCCCP notes](/assets/images/corri-constructionx500.webp)
-
-![CCCCP notes](/assets/images/corri-rm-construction.webp)
+![ccccp flow chart](/assets/images/flow-chart.webp)
 
 ### Development
 
-Code was written for each part of the program starting with the header and input for contractors to add their name. Once each section was working the development of the following section took place. Once all sections had been created testing took place which highlighted the need for additional features.
-
-i.e.
-In the "input name" section the user could hit enter and a blank space would be inputted so the first and last names were made required fields. Instructions were written to ensure each user understood the importance of entering their name only. After testing with required fields, the inability to add symbols and numbers was also added.
-
-![CCCCP name error](/assets/images/cc-rm-name-error.png)
-
-In the "input dates and hours" section testing highlighted the fact that a customer can enter that they worked for just one day but worked 36 hours. Additional coding was added to ensure the maximum number of hours worked in a day was 13 and that applied whether a user worked one day or 10.
+Code was written for each part of the program starting with the header and input for staff to add data and instruction on how to do that correctly. Once each section was working the development of the following section took place. Once all sections had been created testing took place, making sure all the validation criteria were respected and the correct error was shown when the data entered was not valid. Also tested that the worksheet were updated correclty and that the automatic calculations were giving the correct results. 
 
 
 ## Features
 
-### Slow Typing Instructions
-A staggered typing effect was used to display the instructions at the beginning and at different stages of the program at close to reading speed. The sleep effect was used to allow for delays in displaying the next line of information.
-This provided time for the customer to process the information given before starting to input their details, the hope is that this will result in a reduction in input errors.
+### Teams revenue update system
 
-### Name and profession input
-This feature gives the program the information it needs to find the contractor and connect to their employee number. 
+The program allows users to insert data to update the revenue for the 3 teams of the football academy. The user is required to insert 3 values respective to the 3 different payment plans, as players of the academy can book a single training session, a pack of 12 training sessions or annual subscription that gives access to unlimited training sessions. The program then requires to enter data for the 3 teams in a sequence, the under8 first automatically followed by the under11 and under13 team at last, providing instructions and examples on how to insert data correctly to the user:
 
-![CCCCP name](/assets/images/cc-rm-name.png)
+![ccccp under8 data](/assets/images/under8.webp)
+![ccccp under11 data](/assets/images/under11.webp)
+![ccccp under13 data](/assets/images/under13.webp)
 
+### Feedback Messages
 
-Next. The contractor is asked to select their profession. An error message is displayed if an invalid letter is added:
+The program provides feedback messages to the user, to inform when data has been entered correctly,if the worksheets have been updated or if the system is calculating some values:
 
-![CCCCP profession](/assets/images/cc-rm-profession-invalid.png)
+![ccccp feedback messages](/assets/images/feedback.webp)
 
-An opportunity to pick again if the wrong profession was selected has also been given.
+### Validation
 
-![CCCCP profession](/assets/images/cc-rm-profession-incorrect.png)
+The program has an automatic validation system that informs the user if the data entered is valid, showing an error depending on the type of wrong data entered and redirecting the user to the input request, as shown in the picture below:
 
-### Hourly pay and employee number
-Once a contractor has selected their name and profession and confirms the information is correct, the computer brings up confirmation of their hourly pay and contractor number.
-
-![CCCCP pay](/assets/images/cc-rm-pay-number-confirmation.png)
-
-### Working dates, days and hours
-The contractor is then prompted to add the dates they worked, the number of days and the number of hours. The number of days worked was not originally included in the program but after testing it was added to avoid any confusion about the days a contractor has worked. 
-
-![CCCCP dates](/assets/images/cc-rm-incorrect-dates.png)
-
-The dates and number of days must match exactly otherwise the user cannot continue to add any further details. This avoids a contractor adding that they worked for 1-08-2023 to 7-08-2023 but they only worked 3 out of those 7 days. The contractor will then have to complete the exact number of days to continue moving forward.
-
-### Confirm information so far
-
-The contractor will be asked to confirm all the information they have submitted so far before being able to move on. 
-
-![CCCCP check](/assets/images/cc-rm-check-information.png)
-
-If anything needs to change e.g. name, professions, hours, dates etc. the contractor selects n for no.
-
-![CCCCP no selection](/assets/images/cc-rm-check-information-invalid.png)
-
-### Tax and National Insurance
-Once all information has been added the program will give a contractor a rough estimate of the tax and national insurance due, which is taken by an umbrella company they joined. The majority of self-employed contractors pay 20% tax or less so it wasn't felt necessary to include a 40% tax option for those earning more than £67,500 in a tax year. This could be added in the future if necessary.
-
-![CCCCP confirm](/assets/images/cc-rm-check-information-ok.png)
-
-### Confirmation of information
-
-Once the amount before and after tax has been shown the contractor can confirm that they would like this information submitted to HR. HR keep detailed information on the contractors they use and the hours they work. The information submitted is checked by a manager who confirms the working hours and days. Information on tax and NI payments is sent to the umbrella company.
-
-
-### What the portal checks
-
-
-A name is inputted and not left blank. Instructions are given to only use letters to avoid a delay in payment.
-
-![CCCCP name](/assets/images/cc-rm-name-error.png)
-
-
-Profession is chosen from a list of options
-
-![CCCCP professions](/assets/images/cc-rm-profession.png)
-
-The dates (must be within a two month period), the total number of days and hours worked.
-
-![incorrect dates](/assets/images/cc-rm-incorrect-dates.png)
-
-
-As per Working Time Regulations 1998 a maximum of 13 hours are allowed in a day. App checks that less than 13 hours is inputted per day.
-
-![CCCCP hours](/assets/images/cc-rm-13.png)
-
-Hours can not exceed the dates.
-
-
-Based on information provided a calculation is made to determine pay before tax and then pay after tax and NI deductions.
-
-
-![CCCCP confirm](/assets/images/cc-rm-check-information-ok.png)
-
-The program checks that the contractor is ready to submit this information. 
-
-If they select yes, they receive confirmation of submission
-
-![CCCCP submission](/assets/images/cc-rm-information-submitted.png)
-
-If they select no, they are invited to re-submit, as shown above.
-
-### Error Page
-
-A 404 error page has been included. The html was run through the W3C html validator and errors removed. A css style file was created to support the display of the text on the page.
-
+![ccccp ](/assets/images/literal-error.webp)
+![ccccp](/assets/images/list-error.webp)
 
 ## Google Sheets
 
-Using Google sheets wasn't part of the original project spec and was added after all the code was created, tested and working. The sheet contains two sections
+Google Sheets worksheets were used in this project to update and show the data entered by the user, and the data automatically calculated and updated by the program itself.
+Six different worksheets were created, with three of them related to the teams, and other three related to the total revenue, previous revenue and the difference between the total just calculated and the previous one. 
 
-### Payments
-In this area the following contractor information is included:
+![ccccp under8 worksheet](/assets/images/worksheet-overview.webp)
+![ccccp under11 worksheet](/assets/images/under11-worksheet.webp)
+![ccccp under13 worksheet](/assets/images/under13-worksheet.webp)
+![ccccp total worksheet](/assets/images/total-worksheet.webp)
+![ccccp previous worksheet](/assets/images/previous-worksheet.webp)
+![ccccp difference worksheet](/assets/images/difference-worksheet.webp)
 
-- First name
-- Last name
-- Profession
-- Start date
-- End date
-- Pay before tax
-
-![gsheet](assets/images/gsheet-rm-ccccp.png)
-
-### Tax
-In this area the following contractor information is included:
-
-- First name
-- Last name
-- Profession
-- Pay before tax
-- Tax to pay
-- National Insurance to pay
-
-![gsheet](assets/images/gsheet2-rm-ccccp.png)
-
-This information is sent to the umbrella company.
 
 ## Technologies Used
 
-The main technology used to create this program is Python
-HTML and CSS to change the background and add social media links.
-Google API
-Google Sheets
-
-### Resources
-
-- Codeanywhere 
-- Visual Studio Code (VSC)
-- GitHub 
-- Heroku
-- Font Awesome
-- Canva for help with images
-- miro.com to create flow chart
-
-### Libraries
-[colorama Fore & Back](https://pypi.org/project/colorama/)
-[random](https://docs.python.org/3/library/random.html) - to generate contractor number
-[typing](https://www.101computing.net/python-typing-text-effect/))
-[datetime](https://www.programiz.com/python-programming/datetime)
-[sleep](https://www.programiz.com/python-programming/time/sleep) - function for delays in typing out lines
+The main technology used to create this program is Python.
+I also used [Colorama](https://pypi.org/project/colorama/) library to change color to the terminal text,
+and [Heroku](https://dashboard.heroku.com/apps/the-football-academy-analytics) and [Github](https://github.com/alelodato/The-Football-Academy-Analytics) to deploy the project.
+The flow chart was made using [Lucid Charts](https://www.lucidchart.com/pages/).
 
 ## Testing
 

@@ -25,7 +25,7 @@ Link to the [Worksheets](https://docs.google.com/spreadsheets/d/1dbK8_8o8HC8mALu
 - [Google Sheets](#google-sheets)
 - [Technologies Used](#technologies-used)
 - [Testing](#testing)
-  - [Testing Browsers](#Testing-browsers)  
+  - [Testing Browsers](#testing-browsers)  
   - [Code Validation](#code-validation)
 - [Deployment](#deployment)
   - [Heroku](#heroku)

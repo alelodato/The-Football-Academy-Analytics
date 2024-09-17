@@ -1,44 +1,35 @@
 
 
 # THE FOOTBALL ACADEMY ANALYTICS PROGRAM
+
 ![CCCCP header](/assets/images/terminal-overview.webp)
 ![CCCCP header](/assets/images/worksheet-overview.webp)
 
 The Football Academy Analytics Program, is made to update the revenue of the 3 teams of a football academy, and is automated to calculate the total revenue, the difference compared to the previous month revenue, and to update the previous month revenue worksheet with the total revenue last calculated by the program,after all data are inserted and all other worksheet have been updated, so that si already in the system for the next update.
 
-The deployed project live link is [HERE](https://the-football-academy-analytics-b24b05f91367.herokuapp.com/) - ***Use Ctrl (Cmd) and click to open in a new window.*** 
+Link to the [Deployed Project](https://the-football-academy-analytics-b24b05f91367.herokuapp.com/)
+
+Link to the [Worksheets](https://docs.google.com/spreadsheets/d/1dbK8_8o8HC8mALul1UhLBv48BKOpbxaC7maUhdOv3q8/edit?gid=1676227007#gid=1676227007)
 
 ## Contents
 
 
-- [User goals:](#user-goals)
 - [Site owner goals](#site-owner-goals)
+- [User goals](#user-goals)
 - [Pre development](#pre-development)
 - [Development](#development)
 - [Features](#features)
-  - [Slow Typing Instructions](#slow-typing-instructions)
-  - [Name and profession input](#name-and-profession-input)
-  - [Hourly pay and employee number](#hourly-pay-and-employee-number)
-  - [Working dates, days and hours](#working-dates-days-and-hours)
-  - [Confirm information so far](#confirm-information-so-far)
-  - [Tax and National Insurance](#tax-and-national-insurance)
-  - [Confirmation of information](#confirmation-of-information)
-  - [What the portal checks](#what-the-portal-checks)
-  - [Error Page](#error-page)
+  - [Teams Revenue Update System](#teams-revenue-update-system)
+  - [Feedback Messages](#feedback-messages)
+  - [Validation](#validation)
 - [Google Sheets](#google-sheets)
-  - [Payments](#payments)
-  - [Tax](#tax)
 - [Technologies Used](#technologies-used)
-- [Resources](#resources)
-  - [Libraries](#libraries)
 - [Testing](#testing)
-- [Future Updates](#future-updates)  
-- [Validation](#validation)
+  - [Testing Browsers](#Testing-browsers)  
+  - [Code Validation](#code-validation)
 - [Deployment](#deployment)
   - [Heroku](#heroku)
-  - [Branching the GitHub Repository using GitHub Desktop and Visual Studio Code](#branching-the-github-repository-using-github-desktop-and-visual-studio-code)
 - [Bugs](#bugs)
-- [Credits](#credits)
 - [Acknowledgements](#acknowledgements)
 
 ### Site owner goals
@@ -47,7 +38,8 @@ Provide a program that is easy to use and maintain.
 Present a program that gives clear instructions each time a member of the staff visits.
 Keep track of the individual teams and tariff plans revenue, and be able to automatic calculate the total and the difference between the current and last month ones.
 Add the submitted informations and get access to them via a Google Sheets worksheet.
-### User goals:
+
+### User goals
 
 Get clear instructions on how to use the system in front of them that they can refer to if needed.
 The ability to easily input the revenue for the three teams of the academy and for the three different payment plans.
@@ -93,6 +85,8 @@ The program has an automatic validation system that informs the user if the data
 Google Sheets worksheets were used in this project to update and show the data entered by the user, and the data automatically calculated and updated by the program itself.
 Six different worksheets were created, with three of them related to the teams, and other three related to the total revenue, previous revenue and the difference between the total just calculated and the previous one. 
 
+Link to the [Football Academy Analytics Worksheets](https://docs.google.com/spreadsheets/d/1dbK8_8o8HC8mALul1UhLBv48BKOpbxaC7maUhdOv3q8/edit?gid=1676227007#gid=1676227007)
+
 ![ccccp under8 worksheet](/assets/images/worksheet-overview.webp)
 ![ccccp under11 worksheet](/assets/images/under11-worksheet.webp)
 ![ccccp under13 worksheet](/assets/images/under13-worksheet.webp)
@@ -111,8 +105,6 @@ The flow chart was made using [Lucid Charts](https://www.lucidchart.com/pages/).
 ## Testing
 
 Once the portal was operational I set about testing it for errors and to ensure any possible errors that can be made were caught.
-
-The deployed project live link is [HERE](https://the-football-academy-analytics-b24b05f91367.herokuapp.com/) - ***Use Ctrl (Cmd) and click to open in a new window.*** 
 
 ### Manual Testing
 
@@ -163,46 +155,13 @@ The Application has been deployed from GitHub to Heroku by following the steps:
 9.  Choose the branch you want to build your app from
 10. If preferred, click on "Enable Automatic Deploys", which keeps the app up to date with your GitHub repository
 11. Wait for the app to build. Once ready you will see the “App was successfully deployed” message and a 'View' button to take you to your deployed link.
-
-### Branching the GitHub Repository using GitHub Desktop and Visual Studio Code
-1. Go to the GitHub repository.
-2. Click on the branch button in the left hand side under the repository name.
-3. Give your branch a name.
-4. Go to the CODE area on the right and select "Open with GitHub Desktop".
-5. You will be asked if you want to clone the repository - say yes.
-6. GitHub desktop will suggest what to do next - select Open code using Visual Studio Code.
    
-The deployed project live link is [HERE](https://corri-construction-8c4725a33281.herokuapp.com/) - ***Use Ctrl (Cmd) and click to open in a new window.*** 
+The deployed project live link is [HERE](https://the-football-academy-analytics-b24b05f91367.herokuapp.com/)
 
 ## Bugs
 
-## Credits
-
-Free Code Camp Python for everyone course that helped me get my project started - [here](https://www.youtube.com/watch?v=wgkC8SxraAQ)
-
-py4e autograder to help with checking maths - [here](https://www.py4e.com/tsugi/store/test/pythonauto )
-
-Geek for Geek to help me use strip() to add required field for first/last name - [here](https://www.geeksforgeeks.org/python-program-to-check-if-string-is-empty-or-not/)
-
-
-Help putting together the function that calculates income tax and national insurance I started with this video and adapted it - [here](https://www.youtube.com/watch?v=b4lok6-_GGg )
-
-To change numerical value to end in two figures only - [here](https://tutorial.eyehunts.com/python/how-to-display-2-decimal-places-in-python-example-code/)
-
-Using colorama import - [here](https://www.youtube.com/watch?v=u51Zjlnui4Y )
-
-
-Being able to bold and center font - taken from w3Schools - [here](https://www.w3schools.com/python/ref_string_center.asp)
-
+No bugs experienced in deployed project.
 
 ## Acknowledgements
 
-Code Institute women-in-tech group for their support during huddles and when reviewing my code.
-
-Peer-review slack channel for help trying to find any issues/break the code.
-
-Tutor support for help with figuring out how to round numbers in Google sheet.
-
-Travis.media community - To help with date/hours/time function so it worked correctly.
-
-My mentor Andre Aquilina for teaching me about the proper structure for code - e.g. imports, functions, main code and for encouraging me to create the Google sheets addition and for helping with explaining coding.
+I want to acknoledge my mentor Jubril for suggesting using the Colorama library to add color to the program text.

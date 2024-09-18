@@ -128,10 +128,12 @@ def validate_data(values):
         [int(value) for value in values]
         if len(values) != 3:
             raise ValueError(
-               Fore.RED + f"Exactly 3 values required, "
-                          "you provided {len(values)}" + Fore.RESET)
+               Fore.RED + "Exactly 3 values required, "
+                          f"you provided {len(values)}.\n"
+                          "Please try again" + Fore.RESET)
     except ValueError as e:
-        print(Fore.RED + f"Invalid data {e},please try again.\n" + Fore.RESET)
+        print(Fore.RED + f"Invalid data {e}.\n"
+                         "Please try again" + Fore.RESET)
         return False
 
     return True

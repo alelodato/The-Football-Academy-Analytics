@@ -27,7 +27,8 @@ def get_under8_revenue():
     """
 
     while True:
-        print("Please enter last month revenue for the under 8 team, including all 3 payment plans.")
+        print("Please enter last month revenue for the under 8 team, "
+              "including all 3 payment plans.")
         print("Enter 3 values, separated by commas.")
         print(Fore.YELLOW + "Example: 1500, 1700, 2000." + Fore.RESET)
 
@@ -48,7 +49,8 @@ def get_under11_revenue():
     """
 
     while True:
-        print("Please enter last month revenue for the under 11 team, including all 3 payment plans.")
+        print("Please enter last month revenue for the under 11 team, "
+              "including all 3 payment plans.")
         print("Enter 3 values, separated by commas.")
         print(Fore.YELLOW + "Example: 1500, 1700, 2000." + Fore.RESET)
 
@@ -69,7 +71,8 @@ def get_under13_revenue():
     """
 
     while True:
-        print("Please enter last month revenue for the under 13 team, include all 3 payment plans.")
+        print("Please enter last month revenue for the under 13 team, "
+              "include all 3 payment plans.")
         print("Enter 3 values, separated by commas.")
         print(Fore.YELLOW + "Example: 1500, 1700, 2000." + Fore.RESET)
 
@@ -101,7 +104,8 @@ def calculate_total_revenue():
 
 
 def calculate_difference():
-    print(Fore.YELLOW + "Calculating difference with last month revenue...\n" + Fore.RESET)
+    print(Fore.YELLOW + "Calculating difference with "
+                        "last month revenue...\n" + Fore.RESET)
     total_month = SHEET.worksheet("total revenue").get_all_values()
     total_row = total_month[-1]
     previous_month = SHEET.worksheet("previous").get_all_values()
@@ -124,8 +128,8 @@ def validate_data(values):
         [int(value) for value in values]
         if len(values) != 3:
             raise ValueError(
-               Fore.RED + f"Exactly 3 values required, you provided {len(values)}" + Fore.RESET
-            )
+               Fore.RED + f"Exactly 3 values required, "
+                          "you provided {len(values)}" + Fore.RESET)
     except ValueError as e:
         print(Fore.RED + f"Invalid data {e},please try again.\n" + Fore.RESET)
         return False
@@ -164,6 +168,7 @@ def main():
     update_worksheet(total_revenue_data, "previous")
 
 
-print(Fore.GREEN + "HI! THIS IS THE FOOTBALL ACADEMY ANALYTICS PROGRAM." + Fore.RESET)
+print(Fore.GREEN + "HI! THIS IS THE FOOTBALL ACADEMY "
+                   "ANALYTICS PROGRAM." + Fore.RESET)
 main()
 print(Fore.CYAN + "WORKSHEETS UPDATED CORRECTLY! THANK YOU" + Fore.RESET)

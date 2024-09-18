@@ -87,6 +87,10 @@ def get_under13_revenue():
 
 
 def calculate_total_revenue():
+    """
+    Sums the revenues of the three teams,
+    to obtain the total monthly revenue for the football academy.
+    """
     print(Fore.YELLOW + "Calculating total monthly revenue...\n" + Fore.RESET)
     under8 = SHEET.worksheet("u8s").get_all_values()
     under8_row = under8[-1]
@@ -104,6 +108,10 @@ def calculate_total_revenue():
 
 
 def calculate_difference():
+    """
+    Calculates the difference between the previous month revenue
+    and the current one just entered in the system.
+    """
     print(Fore.YELLOW + "Calculating difference with "
                         "last month revenue...\n" + Fore.RESET)
     total_month = SHEET.worksheet("total revenue").get_all_values()
@@ -167,6 +175,10 @@ def main():
     update_worksheet(total_revenue_data, "total revenue")
     revenue_difference_data = calculate_difference()
     update_worksheet(revenue_difference_data, "difference")
+    """
+    Updates the "previous" worksheet with the total month revenue
+    just calculated, to be ready for next revenue update.
+    """
     update_worksheet(total_revenue_data, "previous")
 
 
